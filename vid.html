@@ -1,15 +1,45 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Page Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <style>
+        /* Add some space below the text input */
+        #videoId {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
     <h1>Video Player</h1>
     <p>Play YouTube videos without ads</p>
 
-    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/videoID" title="YouTube 
-video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
+    <label for="videoId">Enter YouTube Video ID:</label>
+    <br>
+    <input type="text" id="videoId" placeholder="Enter YouTube Video ID">
+    <button onclick="updateVideo()">Update</button>
+
+    <div id="videoPlayerContainer">
+        <!-- Initial video with a placeholder ID -->
+        <iframe id="videoPlayer" width="560" height="315" 
+src="https://www.youtube-nocookie.com/embed/initialID" title="YouTube 
+video player" frameborder="0" allow="accelerometer; autoplay; 
+clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
 web-share" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        function updateVideo() {
+            // Get the value from the input field
+            var newVideoId = document.getElementById("videoId").value;
+
+            // Update the source of the iframe with the new video ID
+            var videoPlayer = document.getElementById("videoPlayer");
+            videoPlayer.src = "https://www.youtube-nocookie.com/embed/" + 
+newVideoId;
+        }
+    </script>
 </body>
 </html>
